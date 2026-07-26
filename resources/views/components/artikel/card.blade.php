@@ -1,13 +1,17 @@
+@props(['artikel'])
+
 <div class="card mb-3 shadow">
 
     <div class="card-body">
 
         <h3>{{ $artikel->judul }}</h3>
 
-        <p>{{ Str::limit($artikel->isi,150) }}</p>
+        <p>
+            {{ Str::limit($artikel->isi,150) }}
+        </p>
 
         <p>
-            Penulis :
+            Penulis:
             {{ $artikel->penulis }}
         </p>
 
@@ -19,3 +23,4 @@
     </div>
 
 </div>
+

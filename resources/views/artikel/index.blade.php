@@ -4,9 +4,7 @@
 
     @foreach($artikels as $artikel)
 
-        <x-artikel.card
-            :artikel="$artikel"
-        />
+        <x-artikel.card :artikel="$artikel" />
 
     @endforeach
 

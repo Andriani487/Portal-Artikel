@@ -5,19 +5,18 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
-    {
+{
     public function up(): void
     {
         Schema::create('artikel', function (Blueprint $table) {
             $table->id('id_artikel');
             $table->string('judul');
-            $table-text('isi');
-            $table-string('penulis');
+            $table->text('isi');
+            $table->string('penulis');
             $table->timestamps();
         });
     }
 
-    
     public function down(): void
     {
         Schema::dropIfExists('artikel');

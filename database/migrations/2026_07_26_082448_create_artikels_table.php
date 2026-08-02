@@ -9,11 +9,28 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('artikel', function (Blueprint $table) {
+
             $table->id('id_artikel');
+
             $table->string('judul');
+
             $table->text('isi');
-            $table->string('penulis');
+
+            $table->foreignId('id_user')
+                  ->constrained('users');
+
+            $table->foreignId('id_kategori')
+                  ->constrained('kategori', 'id_kategori');
+
+            $table->enum('level', [
+                'Beginner',
+                'Intermediate',
+                'Advanced',
+                'Expert',
+            ]);
+
             $table->timestamps();
+
         });
     }
 

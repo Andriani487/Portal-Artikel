@@ -22,12 +22,8 @@ return new class extends Migration
             $table->foreignId('id_kategori')
                   ->constrained('kategori', 'id_kategori');
 
-            $table->enum('level', [
-                'Beginner',
-                'Intermediate',
-                'Advanced',
-                'Expert',
-            ]);
+            $table->foreignId('id_level')
+                  ->constrained('level', 'id_level');
 
             $table->timestamps();
 

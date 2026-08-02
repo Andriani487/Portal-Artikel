@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Level;
 
 class Artikel extends Model
 {
@@ -19,7 +20,7 @@ class Artikel extends Model
         'isi',
         'id_user',
         'id_kategori',
-        'level',
+        'id_level',
     ];
 
     public function user(): BelongsTo
@@ -31,4 +32,10 @@ class Artikel extends Model
     {
         return $this->belongsTo(Kategori::class, 'id_kategori');
     }
+
+    public function level(): BelongsTo
+    {
+        return $this->belongsTo(Level::class, 'id_level');
+    }
+
 }

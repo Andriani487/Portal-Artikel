@@ -2,15 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Artikel;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Models\Kategori;
 
 Route::get('/artikel', function () {
 
-    $artikels = Artikel::all();
+    $artikels = App\Models\Artikel::with([
+        'user',
+        'kategori',
+        'level'
+    ])->get();
 
     return view('artikel.index', compact('artikels'));
+
+});
+
+Route::get('/kategori', function () {
+
+    $kategoris = Kategori::all();
+
+    return view('kategori.index', compact('kategoris'));
 
 });
